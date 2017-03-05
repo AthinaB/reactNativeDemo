@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Image,
   StyleSheet,
   Text,
   View
@@ -14,19 +15,11 @@ import {
 
 export default class reactNativeDemo extends Component {
   render() {
+    let picture = {
+      uri: 'https://i.ytimg.com/vi/qTxUKRkOoHM/hqdefault.jpg'
+    };
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-        Hello Fido!!!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <Image source={picture} style={{width: 193, height: 110}}/>
     );
   }
 }
