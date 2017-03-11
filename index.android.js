@@ -10,16 +10,31 @@ import {
   Image,
   StyleSheet,
   Text,
-  View
+  View,
+  ListView
 } from 'react-native';
 
 export default class reactNativeDemo extends Component {
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(['row1', 'row2'])
+    };
+  };
   render() {
     let picture = {
       uri: 'https://i.ytimg.com/vi/qTxUKRkOoHM/hqdefault.jpg'
     };
     return (
+      // Return *only one element* that can have several children
+      <View>
         <Image source={picture} style={{width: 193, height: 110}}/>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(data)=><View><Text>{data}</Text></View>}
+        />
+      </View>
     );
   }
 }
