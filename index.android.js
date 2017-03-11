@@ -19,7 +19,14 @@ export default class reactNativeDemo extends Component {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows(['row1', 'row2'])
+      // Here we put all the data that we are going to use in every row
+      dataSource: ds.cloneWithRows([{
+        first_name: 'John',
+        last_name: 'Doe'
+      }, {
+        first_name: 'Jane',
+        last_name: 'Done'
+      }])
     };
   };
   render() {
@@ -32,7 +39,7 @@ export default class reactNativeDemo extends Component {
         <Image source={picture} style={{width: 193, height: 110}}/>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(data)=><View><Text>{data}</Text></View>}
+          renderRow={(data)=><View><Text>{data.first_name} - {data.last_name}</Text></View>}
         />
       </View>
     );
