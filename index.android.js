@@ -13,6 +13,7 @@ import {
   View,
   ListView
 } from 'react-native';
+import data from './data';
 
 export default class reactNativeDemo extends Component {
   constructor(props) {
@@ -20,13 +21,7 @@ export default class reactNativeDemo extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       // Here we put all the data that we are going to use in every row
-      dataSource: ds.cloneWithRows([{
-        first_name: 'John',
-        last_name: 'Doe'
-      }, {
-        first_name: 'Jane',
-        last_name: 'Done'
-      }])
+      dataSource: ds.cloneWithRows(data)
     };
   };
   render() {
@@ -39,7 +34,7 @@ export default class reactNativeDemo extends Component {
         <Image source={picture} style={{width: 193, height: 110}}/>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(data)=><View><Text>{data.first_name} - {data.last_name}</Text></View>}
+          renderRow={(data)=><View><Text>{data.name.last} - {data.name.first}</Text></View>}
         />
       </View>
     );
