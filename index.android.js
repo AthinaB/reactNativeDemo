@@ -14,6 +14,7 @@ import {
   ListView
 } from 'react-native';
 import data from './data';
+import RowAB from './RowAB';
 
 export default class reactNativeDemo extends Component {
   constructor(props) {
@@ -25,18 +26,15 @@ export default class reactNativeDemo extends Component {
     };
   };
   render() {
-    let picture = {
-      uri: 'https://i.ytimg.com/vi/qTxUKRkOoHM/hqdefault.jpg'
-    };
     return (
       // Return *only one element* that can have several children
-      <View>
-        <Image source={picture} style={{width: 193, height: 110}}/>
         <ListView
+          style={styles.container}
           dataSource={this.state.dataSource}
-          renderRow={(data)=><View><Text>{data.name.last} - {data.name.first}</Text></View>}
+          renderRow={
+            (data)=><RowAB {...data} />
+          }
         />
-      </View>
     );
   }
 }
@@ -44,20 +42,8 @@ export default class reactNativeDemo extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    marginTop: 20
+  }
 });
 
 AppRegistry.registerComponent('reactNativeDemo', () => reactNativeDemo);
