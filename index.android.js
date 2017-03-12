@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import data from './data';
 import RowAB from './RowAB';
+import HeaderAB from './HeaderAB';
 
 export default class reactNativeDemo extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ export default class reactNativeDemo extends Component {
           renderSeparator={
             (sectionID, rowID) => <View key={rowID} style={styles.separator} />
           }
+          renderHeader={() => <HeaderAB />}
         />
     );
   }
