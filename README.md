@@ -11,5 +11,6 @@ Let's make a simple roadmap
 - Create a contact form
 - Login
 - Upload image
+- i18n
 
 More to add...
