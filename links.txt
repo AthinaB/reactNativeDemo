@@ -1,1 +1,4 @@
-https://github.com/jondot/awesome-react-native
+- https://github.com/jondot/awesome-react-native
+  Several libraries/frameworks for react
+- https://github.com/rnpm/rnpm
+  Package manager: Should use?
