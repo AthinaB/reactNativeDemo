@@ -2,3 +2,5 @@
   Several libraries/frameworks for react
 - https://github.com/rnpm/rnpm
   Package manager: Should use?
+- https://github.com/fnando/i18n-js
+  See also: http://stackoverflow.com/questions/39023697/react-native-i18n-separate-files
