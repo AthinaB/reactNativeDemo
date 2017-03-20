@@ -14,3 +14,5 @@ What can we write?
   swagger: has all that but not the hosting part (?), *less documentation*, best
   thing the code generator, but we probably won't need one.
 - https://apiary.io/how-to-build-api : step by step!
+- https://help.apiary.io/api_101/choosing-format/ : swagger vs API Blueprint
+- https://stackshare.io/stackups/apiary-vs-read-the-docs-vs-readme-io
