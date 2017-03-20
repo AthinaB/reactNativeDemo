@@ -13,3 +13,4 @@ What can we write?
   layout, mock server.
   swagger: has all that but not the hosting part (?), *less documentation*, best
   thing the code generator, but we probably won't need one.
+- https://apiary.io/how-to-build-api : step by step!
