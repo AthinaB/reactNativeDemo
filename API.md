@@ -12,7 +12,15 @@ What can we write?
   Why we choose apiary: has hosting, is easily trackable by git repo, nice
   layout, mock server.
   swagger: has all that but not the hosting part (?), *less documentation*, best
-  thing the code generator, but we probably won't need one.
+  thing the code generator, but we probably will not need one.
 - https://apiary.io/how-to-build-api : step by step!
 - https://help.apiary.io/api_101/choosing-format/ : swagger vs API Blueprint
 - https://stackshare.io/stackups/apiary-vs-read-the-docs-vs-readme-io
+- https://github.com/bootprint/bootprint-openapi : swagger to html
+- https://github.com/twskj/pretty-swag : swagger to html
+- https://github.com/sourcey/spectacle : swagger to html
+- https://jexhson.github.io/jekyll-swagger/
+- http://www.alexandrejoseph.com/blog/2015-09-10-swagger-documentation-jekyll-github.html
+  : for the above
+
+
