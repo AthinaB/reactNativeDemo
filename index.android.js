@@ -7,55 +7,53 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  ListView
 } from 'react-native';
-import data from './data';
-import RowAB from './RowAB';
-import HeaderAB from './HeaderAB';
-import FooterAB from './FooterAB';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware,  combineReduxers, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import reducer from './android/app/reducers';
+import AppContainer from './android/app/containers/AppContainer';
 
-export default class reactNativeDemo extends Component {
-  constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      // Here we put all the data that we are going to use in every row
-      dataSource: ds.cloneWithRows(data)
-    };
-  };
-  render() {
-    return (
-      // Return *only one element* that can have several children
-        <ListView
-          style={styles.container}
-          dataSource={this.state.dataSource}
-          renderRow={
-            (data)=><RowAB {...data} />
-          }
-          renderSeparator={
-            (sectionID, rowID) => <View key={rowID} style={styles.separator} />
-          }
-          renderHeader={() => <HeaderAB />}
-          renderFooter={ () => <FooterAB />}
-        />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20
-  },
-  separator: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E'
-  }
+/*
+ * The logger works only in develop mode
+ * It logs the actions
+ */
+const loggerMiddleware = createLogger({
+  predicate: () => process.env.NODE_ENV === 'development',
 });
 
-AppRegistry.registerComponent('reactNativeDemo', () => reactNativeDemo);
+
+
+function configureStore(initialState) {
+  const enhancer = compose(
+  applyMiddleware(thunkMiddleware, loggerMiddleware)
+  );
+
+  return createStore(reducer, initialState, enhancer);
+};
+
+// Here you would add a prefetch for initialization
+const store = configureStore({});
+
+
+class ReactNativeDemo extends Component {
+  render() {
+    return (
+      <View>
+        <Text>
+          Lalala
+        </Text>
+      </View>
+    )
+  }
+};
+
+const App = () => (
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>
+);
+
+
+AppRegistry.registerComponent('reactNativeDemo', () => App);
