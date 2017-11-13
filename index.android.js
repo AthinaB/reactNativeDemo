@@ -16,6 +16,14 @@ import reducer from './android/app/reducers';
 import AppContainer from './android/app/containers/AppContainer';
 
 /*
+ * This is used to see the network traffic in chrome dev tools
+ * https://github.com/facebook/react-native/issues/934#issuecomment-150772039
+ */
+if(process.env.NODE_ENV === 'development') {
+  GLOBAL.XMLHttpRequest = GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;
+}
+
+/*
  * The logger works only in develop mode
  * It logs the actions
  */
